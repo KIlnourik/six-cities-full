@@ -6,3 +6,4 @@ export const getRandomItems = <T>(item: T, length: number): T[] => {
   return items;
 };
 
+export const getRating = (rating:number): number => (Math.round(rating) * 20);

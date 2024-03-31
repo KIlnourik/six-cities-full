@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker';
-import { Comment } from '../types/comment';
+import { Review } from '../types/review';
 import { Rating } from '../const';
-import { getRandomItems } from '../utils/utils';
 
-const review: Comment = {
+const createReview = (): Review => ({
   comment: faker.lorem.sentences(),
   date: faker.date.anytime().toString(),
   id: Number(faker.string.numeric({length: {min: 1, max: 10}})),
@@ -14,6 +13,14 @@ const review: Comment = {
     isPro: faker.datatype.boolean(),
     name: faker.person.fullName(),
   }
+});
+
+const createReviews = (length: number): Review[] => {
+  const reviews: Review[] = [];
+  for (let i = 0; i < length; i++) {
+    reviews.push(createReview());
+  }
+  return reviews;
 };
 
-export const reviews: Comment[] = getRandomItems(review, faker.number.int({ max: 6 }));
+export const reviews: Review[] = createReviews(faker.number.int({ max: 6 }));

@@ -7,13 +7,15 @@ import { AppRoute, AuthStatus } from '../../const';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import PrivateRoute from '../../pages/private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
+import { offers } from '../../mocks/offers';
+import { reviews } from '../../mocks/reviews';
 
 function App(): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={AppRoute.Root} element={<MainPage />} />
+          <Route path={AppRoute.Root} element={<MainPage offers={offers} />} />
           <Route
             path={AppRoute.Favourites}
             element={
@@ -22,7 +24,7 @@ function App(): JSX.Element {
               </PrivateRoute>
             }
           />
-          <Route path={AppRoute.Room} element={<RoomPage />} />
+          <Route path={AppRoute.Room} element={<RoomPage offers={offers} reviews={reviews}/>} />
           <Route path={AppRoute.Login} element={<LoginPage />} />
           <Route path={AppRoute.NotFound} element={<NotFoundPage />} />
         </Routes>
