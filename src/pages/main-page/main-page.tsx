@@ -3,12 +3,16 @@ import Logo from '../../components/logo/logo';
 import OfferCards from '../../components/offer-cards/offer-cards';
 import NoOfferCards from '../../components/no-offer-cards/no-offer-cards';
 import { Offer } from '../../types/offer';
+import Map from '../../components/map/map';
+import { CITY } from '../../mocks/city';
+import { POINTS } from '../../mocks/points';
 
 type Props = {
   offers: Offer[];
 }
 
 function MainPage({ offers }: Props): JSX.Element {
+
   return (
     <div className="page page--gray page--main">
       <Helmet>
@@ -106,7 +110,7 @@ function MainPage({ offers }: Props): JSX.Element {
               ) :
               <NoOfferCards />}
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map city={CITY} points={POINTS}/>
             </div>
           </div>
         </div>
