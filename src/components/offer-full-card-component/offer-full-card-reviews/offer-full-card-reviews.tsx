@@ -1,4 +1,5 @@
 import { Review } from '../../../types/review';
+import ReviewForm from '../../review-form/review-form';
 import OfferFullCardReview from '../offer-full-card-review/offer-full-card-review';
 
 type Props = {
@@ -14,6 +15,7 @@ function OfferFullCardReviews({ reviews }: Props): JSX.Element {
           <OfferFullCardReview review={review} key={review.id} />
         ))}
       </ul>
+      <ReviewForm />
     </section>
   );
 }
